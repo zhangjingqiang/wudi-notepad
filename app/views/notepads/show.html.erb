@@ -1,0 +1,20 @@
+<% model_class = @notepad.class %>
+
+<div class="page-header">
+  <h1>详细记事</h1>
+</div>
+
+<p>
+<strong><%= model_class.human_attribute_name(:title) %></strong><br>
+<%= @notepad.title %>
+</p>
+
+<p>
+<strong><%= model_class.human_attribute_name(:content) %></strong><br>
+<%= simple_format(@notepad.content) %>
+</p>
+
+<div class="form-actions">
+  <%= link_to '编辑', edit_notepad_path(@notepad), :class => 'btn' %>
+  <%= link_to '返回', notepads_path, :class => 'btn' %>
+</div>

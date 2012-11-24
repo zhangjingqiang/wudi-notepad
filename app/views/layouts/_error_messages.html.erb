@@ -1,0 +1,13 @@
+<% if object.errors.any? %>
+<div id="error_explanation">
+  <div class="alert alert-error">
+    <a class="close" data-dismiss="alert">×</a>
+    有<%= object.errors.count %>个错误。
+    <ul>
+      <% object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h1>记事一览<h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>标题</th>
+    <th>内容</th>
+    <th>创建时间</th>
+    <th>更新时间</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+<% @notepads.each do |notepad| %>
+  <tr>
+    <td><%= notepad.title %></td>
+    <td><%= truncate(notepad.content, :length => 50) %></td>
+    <td><%= notepad.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+    <td><%= notepad.updated_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+    <td><%= link_to '详细', notepad %></td>
+    <td><%= link_to '编辑', edit_notepad_path(notepad) %></td>
+    <td><%= link_to '删除', notepad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= paginate @notepads %>
+
+<br />
+
+<%= link_to '新记事', new_notepad_path, :class => 'btn btn-primary' %>
