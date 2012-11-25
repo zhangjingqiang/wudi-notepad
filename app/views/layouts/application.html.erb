@@ -2,9 +2,12 @@
 <html>
 <head>
 <title>无敌记事本</title>
-<%= stylesheet_link_tag    "application", :media => "all" %>
+<%= stylesheet_link_tag "application", :media => "all" %>
 <%= javascript_include_tag "application" %>
 <%= csrf_meta_tags %>
+<% if mobile? %>
+  <%= stylesheet_link_tag "mobile" %>
+<% end %>
 <%= Garelic.monitoring 'UA-36553850-1' %>
 </head>
 <body>

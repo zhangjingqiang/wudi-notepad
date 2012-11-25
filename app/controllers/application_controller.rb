@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to notepads_path, :alert => "您没有权限访问此页。"
   end
+
 end

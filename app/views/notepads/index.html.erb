@@ -18,8 +18,8 @@
   <tbody>
 <% @notepads.each do |notepad| %>
   <tr>
-    <td><%= notepad.title %></td>
-    <td><%= truncate(notepad.content, :length => 50) %></td>
+    <td><%= truncate(notepad.title, :length => 10) %></td>
+    <td><%= truncate(notepad.content, :length => 25) %></td>
     <td><%= notepad.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
     <td><%= notepad.updated_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
     <td><%= link_to '详细', notepad %></td>

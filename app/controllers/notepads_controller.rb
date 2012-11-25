@@ -1,6 +1,6 @@
 # coding: utf-8
 class NotepadsController < ApplicationController
-  load_and_authorize_resource :only => [:new,:edit,:create,:update,:destroy]
+  load_and_authorize_resource :only => [:show,:new,:edit,:create,:update,:destroy]
 
   before_filter :authenticate_user!
 
