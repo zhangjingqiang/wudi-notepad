@@ -22,9 +22,20 @@
     <td><%= truncate(notepad.content, :length => 25) %></td>
     <td><%= notepad.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
     <td><%= notepad.updated_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
-    <td><%= link_to '详细', notepad %></td>
-    <td><%= link_to '编辑', edit_notepad_path(notepad) %></td>
-    <td><%= link_to '删除', notepad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+      <%= link_to notepad do %>
+        <span class="label label-info">详细</span>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to edit_notepad_path(notepad) do %>
+        <span class="label label-success">编辑</span>
+      <% end %>
+    <td>
+      <%= link_to notepad, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <span class="label label-important">删除</span>
+      <% end %>
+    </td>
   </tr>
 <% end %>
   </tbody>

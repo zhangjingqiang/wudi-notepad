@@ -12,7 +12,7 @@
   <div><%= f.label :password_confirmation, "确认新密码" %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "更改我的密码" %></div>
+  <div><%= f.submit "更改我的密码", :class => "btn btn-primary", 'data-disable-with' => "正在更改"%></div>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>

@@ -11,7 +11,7 @@
     <div><%= f.check_box :remember_me %><%= f.label :remember_me %></div>
   <% end -%>
 
-  <div><%= f.submit "登录" %></div>
+  <div><%= f.submit "登录", :class => "btn btn-primary", 'data-disable-with' => "正在登录" %></div>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
