@@ -11,14 +11,14 @@
         <p class="navbar-text pull-right">
           <% if user_signed_in? %>
             <%= link_to edit_user_registration_path do %>
-              <span class="label label-info">帐户设置</span>
+              <span class="label label-success">帐户设置</span>
             <% end %>
             <%= link_to destroy_user_session_path, :method=>'delete' do %>
               <span class="label label-important">退出</span>
             <% end %>
           <% else %>
             <%= link_to new_user_session_path do %>
-              <span class="label label-success">登录</span>
+              <span class="label label-info">登录</span>
             <% end %>
           <% end %>
         </p>
