@@ -1,28 +1,25 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      <%= link_to "无敌记事本", root_url, :class => "brand" %>
-      <div class="nav-collapse collapse">
-        <p class="navbar-text pull-right">
-          <% if user_signed_in? %>
-            <%= link_to edit_user_registration_path do %>
-              <span class="label label-success">帐户设置</span>
-            <% end %>
-            <%= link_to destroy_user_session_path, :method=>'delete' do %>
-              <span class="label label-important">退出</span>
-            <% end %>
-          <% else %>
-            <%= link_to new_user_session_path do %>
-              <span class="label label-info">登录</span>
-            <% end %>
-          <% end %>
-        </p>
-      </div>
-    </div>
-  </div>
+<div class="masthead">
+  <ul class="nav nav-pills pull-right">
+    <% if user_signed_in? %>
+      <li <%= "class=active" if params[:controller] == 'notepads' %>>
+        <%= link_to "记事本", notepads_path %>
+      </li>
+      <li <%= "class=active" if params[:controller] == 'devise/registrations' and params[:action] == 'edit' %>>
+        <%= link_to "帐户设置", edit_user_registration_path %>
+      </li>
+      <li><%= link_to "退出", destroy_user_session_path, :method=>'delete' %></li>
+    <% else %>
+      <li <%= "class=active" if params[:controller] == 'home' %>>
+        <%= link_to "首页", root_url %>
+      </li>
+      <li <%= "class=active" if params[:controller] == 'devise/registrations' and params[:action] == 'new' %>>
+        <%= link_to "注册", new_user_registration_path %>
+      </li>
+      <li <%= "class=active" if params[:controller] == 'devise/sessions' and params[:action] == 'new' %>>
+        <%= link_to "登录", new_user_session_path %>
+      </li>
+    <% end %>
+  </ul>
+  <h3 class="muted">无敌记事本</h3>
 </div>
+<hr>
