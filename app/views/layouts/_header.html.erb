@@ -4,7 +4,7 @@
       <li <%= "class=active" if params[:controller] == 'notepads' %>>
         <%= link_to "记事本", notepads_path %>
       </li>
-      <li <%= "class=active" if params[:controller] == 'devise/registrations' and params[:action] == 'edit' %>>
+      <li <%= "class=active" if params[:controller] == 'devise/registrations' and (params[:action] == 'edit' or params[:action] == 'update') %>>
         <%= link_to "帐户设置", edit_user_registration_path %>
       </li>
       <li><%= link_to "退出", destroy_user_session_path, :method=>'delete' %></li>
@@ -12,10 +12,10 @@
       <li <%= "class=active" if params[:controller] == 'home' %>>
         <%= link_to "首页", root_url %>
       </li>
-      <li <%= "class=active" if params[:controller] == 'devise/registrations' and params[:action] == 'new' %>>
+      <li <%= "class=active" if params[:controller] == 'devise/registrations' and (params[:action] == 'new' or params[:action] == 'create') %>>
         <%= link_to "注册", new_user_registration_path %>
       </li>
-      <li <%= "class=active" if params[:controller] == 'devise/sessions' and params[:action] == 'new' %>>
+      <li <%= "class=active" if params[:controller] == 'devise/sessions' and (params[:action] == 'new' or params[:action] == 'create') %>>
         <%= link_to "登录", new_user_session_path %>
       </li>
     <% end %>
