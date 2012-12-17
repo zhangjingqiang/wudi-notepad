@@ -1,12 +1,14 @@
 Wudi Notepad
 ============
 
-Why this name?
---------------
+Introduction
+------------
 
-It was created for a girl:-)
+This is a simple and beautiful notepad:-)
 
-It's running on [Heroku](http://wudi-notepad.herokuapp.com).
+Based on [Bootstrap](http://twitter.github.com/bootstrap).
+Hosted on [Heroku](http://wudi-notepad.herokuapp.com).
+Powered by [Rails](http://rubyonrails.org).
 
 License
 -------
