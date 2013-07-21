@@ -7,7 +7,7 @@ class NotepadsController < ApplicationController
   # GET /notepads
   # GET /notepads.json
   def index
-    @notepads = Kaminari.paginate_array(Notepad.all(:conditions =>{:user_id => current_user.id})).page(params[:page])
+    @notepads = Notepad.where(:user_id => current_user.id).page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
