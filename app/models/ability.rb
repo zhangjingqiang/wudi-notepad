@@ -18,6 +18,7 @@ class Ability
       can :destroy, Notepad do |notepad|
         notepad.user_id == user.id
       end
+      can :search, Notepad
     else
       # banned or unknown situation
       cannot :manage, :all

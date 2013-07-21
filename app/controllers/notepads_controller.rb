@@ -1,13 +1,25 @@
 # coding: utf-8
 class NotepadsController < ApplicationController
-  load_and_authorize_resource :only => [:show,:new,:edit,:create,:update,:destroy]
+  load_and_authorize_resource :only => [:show,:new,:edit,:create,:update,:destroy,:search]
 
   before_filter :authenticate_user!
 
   # GET /notepads
   # GET /notepads.json
   def index
-    @notepads = Notepad.where(:user_id => current_user.id).page(params[:page])
+    if params[:order]
+      @notepads = Notepad.order(params[:sort])
+      case params[:order]
+      when 'up'
+        @notepads = @notepads
+      when 'down'
+        @notepads = @notepads.reverse_order
+      else
+      end
+    else
+      @notepads = Notepad.order('id DESC')
+    end
+    @notepads = @notepads.where(:user_id => current_user.id).page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -84,6 +96,21 @@ class NotepadsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to notepads_url }
       format.json { head :no_content }
+    end
+  end
+
+  # GET /notepads
+  # GET /notepads.json
+  def search
+    if params[:q]
+      @notepads = Notepad.where(:user_id => current_user.id).where("title LIKE ? OR content LIKE ?", "%" + params[:q] + "%", "%" + params[:q] + "%").page(params[:page])
+    else
+      redirect_to root_path and return
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @notepads }
     end
   end
 end

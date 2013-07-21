@@ -1,0 +1,50 @@
+<div class="page-header">
+  <h1>记事一览<h1>
+</div>
+
+<form action="/search" class="form-search pull-right">
+  <div class="input-append">
+    <input type="text" name="q" class="span2 search-query" placeholder="输入关键词" value="<%= params[:q] %>">
+    <button type="submit" class="btn">查询</button>
+  </div>
+</form>
+
+<table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
+  <thead>
+  <tr>
+    <th width="19%">标题 <%= link_to "", notepads_path(sort: "title", order: "up"), :class => "icon-circle-arrow-up" %><%= link_to "", notepads_path(sort: "title", order: "down"), :class => "icon-circle-arrow-down" %></th>
+    <th width="30%">内容 <%= link_to "", notepads_path(sort: "content", order: "up"), :class => "icon-circle-arrow-up" %><%= link_to "", notepads_path(sort: "content", order: "down"), :class => "icon-circle-arrow-down" %></th>
+    <th width="15%">创建时间 <%= link_to "", notepads_path(sort: "created_at", order: "up"), :class => "icon-circle-arrow-up" %><%= link_to "", notepads_path(sort: "created_at", order: "down"), :class => "icon-circle-arrow-down" %></th>
+    <th width="15%">更新时间 <%= link_to "", notepads_path(sort: "updated_at", order: "up"), :class => "icon-circle-arrow-up" %><%= link_to "", notepads_path(sort: "updated_at", order: "down"), :class => "icon-circle-arrow-down" %></th>
+    <th width="21%"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+<% @notepads.each do |notepad| %>
+  <tr>
+    <td><%= highlight truncate(notepad.title, :length => 10), params[:q], :highlighter => '<span style="background-color:yellow;"><a href="search?q=\1">\1</a></span>' %></td>
+    <td><%= highlight truncate(notepad.content, :length => 25), params[:q], :highlighter => '<span style="background-color:yellow;"><a href="search?q=\1">\1</a></span>' %></td>
+    <td><%= notepad.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+    <td><%= notepad.updated_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+    <td style="text-align:center;">
+      <%= link_to notepad, :class => "btn btn-info" do %>
+        <i class="icon-zoom-in icon-white"></i>
+      <% end %>
+      <%= link_to edit_notepad_path(notepad), :class => "btn btn-success" do %>
+        <i class="icon-edit icon-white"></i>
+      <% end %>
+      <%= link_to notepad, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" do %>
+        <i class="icon-trash icon-white"></i>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= paginate @notepads %>
+
+<br />
+
+<%= link_to '新记事', new_notepad_path, :class => 'btn btn-primary' %>
