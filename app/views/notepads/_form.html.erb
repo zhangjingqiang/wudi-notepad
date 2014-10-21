@@ -2,6 +2,13 @@
   <%= render 'layouts/error_messages', object: f.object %>
 
   <div class="control-group">
+    <%= f.label :title, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :title, :class => "input-xxlarge" %>
+    </div>
+  </div>
+
+  <div class="control-group">
     <%= f.label :title, :class => 'control-label'%>
     <div class="controls">
       <%= f.text_field :title, :class => "input-xxlarge" %>
