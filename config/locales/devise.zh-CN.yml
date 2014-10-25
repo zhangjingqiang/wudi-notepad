@@ -8,8 +8,9 @@ zh-CN:
       already_authenticated: 您已经登录.
       inactive: 您还没有激活帐户.
       invalid: 邮箱或密码错误
-      invalid_token: 认证码无效.
+      last_attempt:
       locked: 您的帐号已被锁定.
+      not_found_in_database: 邮箱或密码错误
       timeout: 您已登录超时，请重新登录.
       unauthenticated: 继续操作前请注册或者登录.
       unconfirmed: 继续操作前请先确认您的帐号.
@@ -38,6 +39,7 @@ zh-CN:
       update_needs_confirmation: 新的账号信息已成功提交，一封确认邮件已经发至您的邮箱，请点击其中的链接以使您的新E-mail地址生效。
       updated: 帐号资料更新成功.
     sessions:
+      already_signed_out:
       signed_in: 登录成功.
       signed_out: 退出成功.
     unlocks:
@@ -47,24 +49,10 @@ zh-CN:
   errors:
     messages:
       already_confirmed: 已经确认，请重新登录.
+      confirmation_period_expired: 必须在 %{period} 以内确认，请重新申请
       expired: 您已过期，请重新申请
       not_found: 没有找到
       not_locked: 未锁定
       not_saved:
-        one: ! '因为1个错误导致此%{resource}保存失败:'
-        other: ! '因为%{count}个错误导致此%{resource}保存失败:'
-
-  activerecord:
-    attributes:
-      user:
-        email: 电子邮件
-        password: 密码
-        password_confirmation: 确认密码
-        current_password: 当前密码
-        remember_me: 记住我
-      admin:
-        email: 电子邮件
-        password: 密码
-        password_confirmation: 确认密码
-        current_password: 当前密码
-        remember_me: 记住我
+        one: '因为1个错误导致此%{resource}保存失败:'
+        other: '因为%{count}个错误导致此%{resource}保存失败:'
