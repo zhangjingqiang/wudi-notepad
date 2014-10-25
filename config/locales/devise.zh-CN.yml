@@ -56,3 +56,12 @@ zh-CN:
       not_saved:
         one: '因为1个错误导致此%{resource}保存失败:'
         other: '因为%{count}个错误导致此%{resource}保存失败:'
+
+  activerecord:
+    attributes:
+      user:
+        email: 电子邮件
+        password: 密码
+        password_confirmation: 确认密码
+        current_password: 当前密码
+        remember_me: 记住我
