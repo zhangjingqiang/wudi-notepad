@@ -65,3 +65,9 @@ zh-CN:
         password_confirmation: 确认密码
         current_password: 当前密码
         remember_me: 记住我
+      admin:
+        email: 电子邮件
+        password: 密码
+        password_confirmation: 确认密码
+        current_password: 当前密码
+        remember_me: 记住我
