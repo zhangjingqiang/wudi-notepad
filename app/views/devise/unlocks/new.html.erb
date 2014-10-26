@@ -1,13 +1,21 @@
 <h2>重发解锁指令</h2>
 
-<%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post, :class => 'form-horizontal' }) do |f| %>
   <%#= devise_error_messages! %>
   <%= render 'layouts/error_messages', object: f.object %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.email_field :email %>
+    </div>
+  </div>
 
-  <div><%= f.submit "重发解锁指令", :class => "btn btn-primary", 'data-disable-with' => "正在发送" %></div>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "重发解锁指令", :class => "btn btn-primary", 'data-disable-with' => "正在发送" %>
+    </div>
+  </div>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
