@@ -10,7 +10,7 @@ gem 'jquery-rails', '~> 2.1.3'
 gem 'bootstrap-sass', '~> 2.2.1.1'
 
 # User system
-gem 'rails_admin', '~> 0.2.0'
+gem 'rails_admin', '~> 0.3.0'
 gem 'devise', '~> 2.1.2'
 
 # Permission
