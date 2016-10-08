@@ -12,6 +12,7 @@ Powered by [Rails](http://rubyonrails.org).
 # Installation
 
 ```ruby
+heroku config:set MAILER_DOMAIN=[...]
 heroku config:set MAILER_USERNAME=[...]
 heroku config:set MAILER_PASSWORD=[...]
 heroku run rake db:migrate
