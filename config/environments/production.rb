@@ -72,11 +72,10 @@ WudiNotepad::Application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
     port: 587,
-    domain: "http://wudi-notepad.herokuapp.com",
+    address: "smtp.mailgun.org",
     authentication: "plain",
-    enable_starttls_auto: true,
+    domain: ENV['MAILER_DOMAIL'],
     user_name: ENV['MAILER_USER_NAME'],
     password: ENV['MAILER_PASSWORD']
   }
