@@ -75,7 +75,7 @@ WudiNotepad::Application.configure do
     port: 587,
     address: "smtp.mailgun.org",
     authentication: "plain",
-    domain: ENV['MAILER_DOMAIL'],
+    domain: ENV['MAILER_DOMAIN'],
     user_name: ENV['MAILER_USER_NAME'],
     password: ENV['MAILER_PASSWORD']
   }
